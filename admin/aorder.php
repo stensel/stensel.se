@@ -155,7 +155,7 @@ function init()
 function page()
 {
 ?>
-			<form method="post" class="form-horizontal">
+			<form method="post" class="form-horizontal" data-toggle="validator">
 <?php
 	
 	if (isset($_POST['aorder_new']))
@@ -245,7 +245,7 @@ function addaorderform($id)
 					<div class="row">
 						<label class="col-sm-2 control-label txt-right hidden-xs" for="Beskrivning">Beskrivning</label>
 						<div class="col-sm-8">
-							<input id="Beskrivning" type="text" class="form-control" name="Beskrivning" placeholder="Beskrivning:">
+							<input id="Beskrivning" type="text" class="form-control" name="Beskrivning" required placeholder="Beskrivning:">
 						</div>
 					</div>
 					<div class="row">
@@ -751,72 +751,58 @@ function listkunder()
 function addkundform()
 {
 ?>
-				<div class="well">
-					<div class="row">
-						<label class="col-sm-2 control-label txt-right hidden-xs" for="Namn">Namn:</label>
-						<div class="col-sm-8">
-							<input id="Namn" type="text" class="form-control" name="Namn" placeholder="Kundens namn">
+				<div class="row" style="margin-top: 5px">
+					<div class="col-sm-2 col-md-3"></div>
+					<div class="well col-sm-8 col-md-6 col-xs-12" style="padding-top: 2px; padding-bottom: 2px;">
+						<div class="form-group has-feedback margin-s">
+							<label class="control-label hidden-xs" for="Namn">Namn:</label>
+							<input id="Namn" type="text" class="form-control" name="Namn" placeholder="Kundens namn" required data-error="Fyll i namn" data-toggle="tooltip" data-placement="top" title="Kundens Namn">
+							<div class="help-block with-errors margin-s"></div>
 						</div>
-					</div>
-					<div class="row">
-						<label class="col-sm-2 control-label txt-right hidden-xs" for="Faktura_Adress">Faktura Adress:</label>
-						<div class="col-sm-8">
-							<input id="Faktura_Adress" type="text" class="form-control" name="Faktura_Adress" placeholder="Kundens faktura adress">
+						<div class="form-group has-feedback margin-s">
+							<label class="control-label hidden-xs" for="Faktura_Adress">Faktura Adress:</label>
+							<input id="Faktura_Adress" type="text" class="form-control" name="Faktura_Adress" placeholder="Kundens faktura adress" required data-error="Fyll i gatuadress" data-toggle="tooltip" data-placement="top" title="Kundens faktura gatuadress">
+							<div class="help-block with-errors margin-s"></div>
 						</div>
-					</div>
-					<div class="row">
-						<label class="col-sm-2 control-label txt-right hidden-xs" for="Faktura_PostNr">Faktura PostNr:</label>
-						<div class="col-sm-8">
-							<input id="Faktura_PostNr" type="text" class="form-control" name="Faktura_PostNr" placeholder="Kundens faktura post nummer">
+						<div class="form-group has-feedback margin-s">
+							<label class="control-label hidden-xs" for="Faktura_PostNr">Faktura PostNr:</label>
+							<input id="Faktura_PostNr" type="text" class="form-control" name="Faktura_PostNr" placeholder="Kundens faktura post nummer" required pattern="^([0-9]{3} [0-9]{2}|[0-9]{4})$" data-error="Fyll i ostnummer i formatet '123 45' eller '1234'" data-toggle="tooltip" data-placement="top" title="Kundens faktura post nummer">
+							<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+							<div class="help-block with-errors margin-s"></div>
 						</div>
-					</div>
-					<div class="row">
-						<label class="col-sm-2 control-label txt-right hidden-xs" for="Faktura_PostAdress">Faktura Postadress:</label>
-						<div class="col-sm-8">
-							<input id="Faktura_PostAdress" type="text" class="form-control" name="Faktura_PostAdress" placeholder="Kundens faktura post adress">
+						<div class="form-group has-feedback margin-s">
+							<label class="control-label hidden-xs" for="Faktura_PostAdress">Faktura Postadress:</label>
+							<input id="Faktura_PostAdress" type="text" class="form-control" name="Faktura_PostAdress" placeholder="Kundens faktura post adress" required data-error="Fyll i postadress" data-toggle="tooltip" data-placement="top" title="Kundens faktura post adress">
+							<div class="help-block with-errors margin-s"></div>
 						</div>
-					</div>
-					<div class="row">
-						<label class="col-sm-2 control-label txt-right hidden-xs" for="Faktura_Land">Faktura land:</label>
-						<div class="col-sm-8">
-							<input id="Faktura_Land" type="text" class="form-control" name="Faktura_Land" placeholder="Kundens faktura land">
+						<div class="form-group has-feedback margin-s">
+							<label class="control-label hidden-xs" for="Faktura_Land">Faktura land:</label>
+							<input id="Faktura_Land" type="text" class="form-control" name="Faktura_Land" placeholder="Kundens faktura land" data-toggle="tooltip" data-placement="top" title="Kundens faktura land">
 						</div>
-					</div>
-					<div class="row">
-						<label class="col-sm-2 control-label txt-right hidden-xs" for="Telefon">Telefon:</label>
-						<div class="col-sm-8">
-							<input id="Telefon" type="text" class="form-control" name="Telefon" placeholder="Kundens Telefonnummer">
+						<div class="form-group has-feedback margin-s">
+							<label class="control-label hidden-xs" for="Telefon">Telefon:</label>
+							<input id="Telefon" type="text" class="form-control" name="Telefon" placeholder="Kundens Telefonnummer" data-toggle="tooltip" data-placement="top" title="Kundens telefonnummer">
 						</div>
-					</div>
-					<div class="row">
-						<label class="col-sm-2 control-label txt-right hidden-xs" for="Mobil">Mobil:</label>
-						<div class="col-sm-8">
-							<input id="Mobil" type="text" class="form-control" name="Mobil" placeholder="Kundens mobilnummer">
+						<div class="form-group has-feedback margin-s">
+							<label class="control-label txt-right hidden-xs" for="Mobil">Mobil:</label>
+							<input id="Mobil" type="text" class="form-control" name="Mobil" placeholder="Kundens mobilnummer" data-toggle="tooltip" data-placement="top" title="Kundens mobilnummer">
 						</div>
-					</div>
-					<div class="row">
-						<label class="col-sm-2 control-label txt-right hidden-xs" for="EPost">E-Post:</label>
-						<div class="col-sm-8">
-							<input id="EPost" type="text" class="form-control" name="EPost" placeholder="Kundens E-Post">
+						<div class="form-group has-feedback margin-s">
+							<label class="control-label txt-right hidden-xs" for="EPost">E-Post:</label>
+							<input id="EPost" type="text" class="form-control" name="EPost" placeholder="Kundens E-Post" data-toggle="tooltip" data-placement="top" title="Kundens epost">
 						</div>
-					</div>
-					<div class="row">
-						<label class="col-sm-2 control-label txt-right hidden-xs" for="PersonNr">Person Nr:</label>
-						<div class="col-sm-8">
-							<input id="PersonNr" type="text" class="form-control" name="PersonNr" placeholder="Kundens personnummer">
+						<div class="form-group has-feedback margin-s">
+							<label class="control-label txt-right hidden-xs" for="PersonNr">Person Nr:</label>
+							<input id="PersonNr" type="text" class="form-control" name="PersonNr" placeholder="Kundens personnummer" data-toggle="tooltip" data-placement="top" title="Kundens personnummer (för ROT-avdrag)">
 						</div>
-					</div>
-					<div class="row">
-						<label class="col-sm-2 control-label txt-right hidden-xs" for="Fastighetsbeteckning">Fastighetsbeteckning:</label>
-						<div class="col-sm-8">
-							<input id="Fastighetsbeteckning" type="text" class="form-control" name="Fastighetsbeteckning" placeholder="Kundens fastighetsbeteckning">
+						<div class="form-group has-feedback margin-s">
+							<label class="control-label txt-right hidden-xs" for="Fastighetsbeteckning">Fastighetsbeteckning:</label>
+							<input id="Fastighetsbeteckning" type="text" class="form-control" name="Fastighetsbeteckning" placeholder="Kundens fastighetsbeteckning" data-toggle="tooltip" data-placement="top" title="Kundens fastighetsbeteckning (för ROT-avdrag)">
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-2"></div>
-						<div class="col-sm-8">
-							<button class="btn btn-success" type="submit" name="submit_kund_add"><span class="glyphicon glyphicon-save"></span> Spara</button>
-							<button type="submit" class="btn btn-success" name="submit_back"><span class="glyphicon glyphicon-arrow-left"></span> Tillbaka</button>
+						<div class="form-group has-feedback" style="margin-top: 1em">
+							<button class="btn btn-success col-sm-2 col-xs-3" type="submit" name="submit_back" data-toggle="tooltip" data-placement="top" title="Gå tillbaka till A-Order"><span class="glyphicon glyphicon-arrow-left"></span> Tillbaka</button>
+							<div class="col-sm-8 col-xs-6"></div>
+							<button class="btn btn-success col-sm-2 col-xs-3" type="submit" name="submit_kund_add" data-toggle="tooltip" data-placement="top" title="Spara kunden"><span class="glyphicon glyphicon-save"></span> Spara</button>
 						</div>
 					</div>
 				</div>

@@ -42,9 +42,12 @@ init();
 		<link rel="stylesheet" href="../css/bootstrap-theme.css">
 		<script src="../js/jquery.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/validator.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function()
 			{
+				$('[data-toggle="tooltip"]').tooltip(); 
+				 
 				$(window).keydown(function(event)
 				{
 					if(event.keyCode == 13)

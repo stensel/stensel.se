@@ -694,5 +694,11 @@ fieldset[disabled] .btn-danger.active {
 {
     vertical-align: middle;
 }
+
+.margin-s
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
 /*# sourceMappingURL=bootstrap-theme.css.map */
 
